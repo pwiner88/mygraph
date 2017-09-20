@@ -1,4 +1,5 @@
-i use a version that is 0.0001.YYMMDD which is nice for sorting.
+#!/bin/bash
+# I use a version that is 0.0001.YYMMDD which is nice for sorting.
 VERS=0.001.170907;  #Always good to version your edits.  Usually, start with 0.001.
 LICENSE='The MIT License (MIT)
 Copyright (c) 2017 David W. Craig
@@ -66,4 +67,5 @@ if [ ! -f $GTF ]; then
    echo "file $f is unzipped as and should be ${GTF}"
 fi
 grep -v "^#" Homo_sapiens.GRCh37.75.gtf | awk 'BEGIN { FS="\t" } { print $2,$3,$1,$4,$5 }' | gsed 's/\s/\t/g' | gsed -e '1itranscript_type\tfeature\tchr\tstart\tend'> gene_dist_head.tsv
+
 exit 0;
